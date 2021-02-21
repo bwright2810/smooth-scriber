@@ -1,20 +1,20 @@
 import sys
 from datetime import datetime
+import os
 
 now = datetime.now()
 transcript = "test_transcript.txt"
 
-def run():
-  speakers = list(sys.argv[1:]).copy()
-
+def run(speakers, working_dir=".", transcript_name=transcript):
   new_filename = f'smoothed_{now.strftime("%m%d%Y-%H%M%S")}.txt'
 
-  with open(new_filename, 'a') as new_file:
+  new_path = working_dir + os.path.sep + new_filename
+  with open(new_path, 'a') as new_file:
     curr_speaker = None
     curr_section = ''
     first_section_add = True
 
-    for line in open(transcript):
+    for line in open(working_dir + os.path.sep + transcript_name):
       line_speaker = get_speaker(line, speakers)
 
       if (line_speaker is None and curr_speaker is None):
@@ -53,4 +53,4 @@ def get_speaker(line, speakers):
   return None
 
 if __name__ == '__main__':
-  run()
+  run(list(sys.argv[1:]).copy())
