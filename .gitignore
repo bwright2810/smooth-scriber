@@ -2,3 +2,4 @@ venv
 .vscode
 original_transcript.txt
 __pycache__
+/smoothed*.txt

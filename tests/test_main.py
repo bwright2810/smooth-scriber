@@ -1,7 +1,7 @@
 import unittest
 import os
 import filecmp
-import main
+from app import main
 
 class MainTest(unittest.TestCase):
   def test_endtoend(self):

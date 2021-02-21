@@ -3,7 +3,7 @@ from datetime import datetime
 import os
 
 now = datetime.now()
-transcript = "test_transcript.txt"
+transcript = "example_transcript.txt"
 
 def run(speakers, working_dir=".", transcript_name=transcript):
   new_filename = f'smoothed_{now.strftime("%m%d%Y-%H%M%S")}.txt'
